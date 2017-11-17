@@ -1,16 +1,16 @@
 import telepot.telepot as tp
-import botAuthorization as ba
 import ai
 import state
+from os import environ
 
-
-TOKEN = '487371335:AAEyZv3w6ePuTl_M1szhTbj697DyGaOE0n0'
+TOKEN = environ['TOKEN']
 bot = tp.Bot(TOKEN)
 
 if not state.local:
     import os
     from flask import Flask, request
     from telepot.telepot.loop import OrderedWebhook
+
 
     PORT = os.environ['PORT']
     AI = ai.AI()

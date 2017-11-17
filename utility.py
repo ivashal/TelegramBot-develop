@@ -31,12 +31,12 @@ class UtilityCalc:
                 next = i + 1
                 cur = i
                 break
-            if utility>self.arguments[i] and utility<self.arguments[i+1]:
+            elif utility>self.arguments[i] and utility<self.arguments[i+1]:
                 last = i
                 next = i + 1
                 cur = -1
                 break
-            if utility<self.arguments[i] and utility>self.arguments[i-1]:
+            elif utility<self.arguments[i] and utility>self.arguments[i-1]:
                 last = i - 1
                 next = i
                 cur = -1
@@ -60,7 +60,7 @@ class UtilityCalc:
     def addActions(self,chat_id,word):
         #Possible answers
         have=self.DB.query("select distinct upper(color) from colors where upper(color) not in (select upper(word) from used where chat_id='"+chat_id+"') and substr(upper(color),1,1)='"+word[-1].upper()+"'")
-        max=0;
+        max=0
         #Amounts of answers player can have, based on knonw words
         for el in have:
             res=self.DB.query("select distinct upper(color) from colors where upper(color) not in (select upper(word) from used where chat_id='"+chat_id+"') and upper(color) not in ('"+el[0].upper()+"') and substr(upper(color),1,1)='"+el[0][-1].upper()+"'")

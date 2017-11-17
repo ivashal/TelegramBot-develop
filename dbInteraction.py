@@ -2,10 +2,12 @@ import psycopg2
 import urllib.parse as urlparse
 import os
 import state
+from os import environ
 
 if state.local:
     # tmp="postgres://postgres:postgres@127.0.0.1:5432/WORDS"
-    tmp = "postgres://vninlnnvrzhuus:88f285ca4ebecf41e3b42c1d8f732b0fd1c80fc99df372b685f2d03196ed0574@ec2-54-243-47-252.compute-1.amazonaws.com:5432/d8pt0b38lc0vem"
+    # tmp = ""
+    tmp = environ['DATABASE_URL']
 
 class DBInteraction():
     if state.local==False:
