@@ -1,0 +1,16 @@
+CREATE DATABASE "WORDS"
+    WITH 
+    OWNER = postgres
+    ENCODING = 'UTF8'
+    CONNECTION LIMIT = -1;
+CREATE TABLE public.colors
+(
+    color character varying(10),
+    PRIMARY KEY (color)
+)
+WITH (
+    OIDS = FALSE
+);
+
+ALTER TABLE public.colors
+    OWNER to postgres;
